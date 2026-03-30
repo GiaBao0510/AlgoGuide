@@ -1,6 +1,6 @@
 /* divide-conquer.js — 5 Divide & Conquer Algorithms */
 (function(){
-const R = window.AlgoRegistry;
+const R = window.AlgoRegistry || (window.AlgoRegistry = {});
 function dcRender(canvas,step){renderArrayBars(canvas,step.array,step.highlights);}
 
 R['dc-merge-sort']={name:'Merge Sort (D&C)',group:'divide-conquer',defaultInput:'38, 27, 43, 3, 9, 82, 10',

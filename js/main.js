@@ -9,16 +9,16 @@ window.AlgoRegistry = window.AlgoRegistry || {};
 
 /* ===== Algorithm Group Definitions ===== */
 const ALGO_GROUPS = [
-  { id: 'sorting',   icon: '📊', name: 'Sắp xếp (Sorting)' },
-  { id: 'searching', icon: '🔍', name: 'Tìm kiếm (Searching)' },
-  { id: 'graph',     icon: '🕸️', name: 'Đồ thị (Graph)' },
-  { id: 'tree',      icon: '🌳', name: 'Cây (Tree)' },
-  { id: 'two-pointers', icon: '👉', name: 'Hai con trỏ / Cửa sổ trượt' },
-  { id: 'divide-conquer', icon: '✂️', name: 'Chia để trị (Divide & Conquer)' },
-  { id: 'hashing',   icon: '#️⃣', name: 'Hashing' },
-  { id: 'greedy',    icon: '💰', name: 'Tham lam (Greedy)' },
-  { id: 'backtracking', icon: '🔙', name: 'Quay lui (Backtracking)' },
-  { id: 'math',      icon: '🔢', name: 'Toán học (Math)' }
+  { id: 'sorting',   icon: 'S', name: 'Sắp xếp (Sorting)' },
+  { id: 'searching', icon: 'F', name: 'Tìm kiếm (Searching)' },
+  { id: 'graph',     icon: 'G', name: 'Đồ thị (Graph)' },
+  { id: 'tree',      icon: 'T', name: 'Cây (Tree)' },
+  { id: 'two-pointers', icon: '2P', name: 'Hai con trỏ / Cửa sổ trượt' },
+  { id: 'divide-conquer', icon: 'D', name: 'Chia để trị (Divide & Conquer)' },
+  { id: 'hashing',   icon: 'H', name: 'Hashing' },
+  { id: 'greedy',    icon: 'GR', name: 'Tham lam (Greedy)' },
+  { id: 'backtracking', icon: 'BT', name: 'Quay lui (Backtracking)' },
+  { id: 'math',      icon: 'M', name: 'Toán học (Math)' }
 ];
 
 /* ===== App State ===== */
@@ -49,7 +49,7 @@ function toggleTheme() {
 }
 
 function updateThemeIcons(theme) {
-  const icon = theme === 'dark' ? '🌙' : '☀️';
+  const icon = theme === 'dark' ? 'Dark' : 'Light';
   document.querySelectorAll('.theme-icon').forEach(el => el.textContent = icon);
 }
 
@@ -75,9 +75,9 @@ function buildSidebar() {
           <span class="arrow">▶</span>
         </div>
         <div class="nav-group-items">
-          ${algos.map(a => `
+          ${algos.length ? algos.map(a => `
             <a class="nav-item" data-algo="${a.id}" onclick="selectAlgorithm('${a.id}')" href="#${a.id}">${a.name}</a>
-          `).join('')}
+          `).join('') : '<span class="nav-empty">Chưa có thuật toán</span>'}
         </div>
       </div>
     `;
@@ -200,10 +200,10 @@ function renderDescription(algo) {
   const useCases = algo.useCases || [];
 
   let html = `
-    <h3>📖 Giải thích</h3>
+    <h3>Giải thích</h3>
     <p>${desc}</p>
 
-    <h3>📊 Độ phức tạp</h3>
+    <h3>Độ phức tạp</h3>
     <table class="complexity-table">
       <thead>
         <tr>
@@ -229,13 +229,13 @@ function renderDescription(algo) {
   `;
 
   if (pros.length) {
-    html += `<h3>✅ Ưu điểm</h3><ul class="desc-list pros">${pros.map(p => `<li>${p}</li>`).join('')}</ul>`;
+    html += `<h3>Ưu điểm</h3><ul class="desc-list pros">${pros.map(p => `<li>${p}</li>`).join('')}</ul>`;
   }
   if (cons.length) {
-    html += `<h3>❌ Nhược điểm</h3><ul class="desc-list cons">${cons.map(c => `<li>${c}</li>`).join('')}</ul>`;
+    html += `<h3>Nhược điểm</h3><ul class="desc-list cons">${cons.map(c => `<li>${c}</li>`).join('')}</ul>`;
   }
   if (useCases.length) {
-    html += `<h3>💡 Use cases</h3><ul class="desc-list uses">${useCases.map(u => `<li>${u}</li>`).join('')}</ul>`;
+    html += `<h3>Use cases</h3><ul class="desc-list uses">${useCases.map(u => `<li>${u}</li>`).join('')}</ul>`;
   }
 
   container.innerHTML = html;
@@ -347,8 +347,8 @@ function initCopyBtn() {
     const code = document.getElementById('codeBlock');
     if (!code) return;
     navigator.clipboard.writeText(code.textContent).then(() => {
-      copyBtn.textContent = '✅ Copied!';
-      setTimeout(() => { copyBtn.innerHTML = '📋 Copy'; }, 2000);
+      copyBtn.textContent = 'Copied';
+      setTimeout(() => { copyBtn.textContent = 'Copy'; }, 2000);
     }).catch(() => {
       /* Fallback */
       const textarea = document.createElement('textarea');
@@ -357,8 +357,8 @@ function initCopyBtn() {
       textarea.select();
       document.execCommand('copy');
       textarea.remove();
-      copyBtn.textContent = '✅ Copied!';
-      setTimeout(() => { copyBtn.innerHTML = '📋 Copy'; }, 2000);
+      copyBtn.textContent = 'Copied';
+      setTimeout(() => { copyBtn.textContent = 'Copy'; }, 2000);
     });
   });
 }
@@ -499,6 +499,7 @@ function initControls() {
   const prevBtn = document.getElementById('prevBtn');
   const randomBtn = document.getElementById('randomBtn');
   const speedSlider = document.getElementById('speedSlider');
+  const algoInput = document.getElementById('algoInput');
 
   if (playBtn) {
     playBtn.addEventListener('click', () => {
@@ -546,6 +547,17 @@ function initControls() {
     speedSlider.addEventListener('input', () => {
       AppState.speed = parseInt(speedSlider.value);
       document.getElementById('speedLabel').textContent = speedSlider.value + 'x';
+    });
+  }
+
+  if (algoInput) {
+    algoInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        stopAnimation();
+        resetVisualizer();
+        generateSteps();
+        switchTab('visualizer');
+      }
     });
   }
 }

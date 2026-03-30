@@ -151,6 +151,11 @@ a:hover { text-decoration: underline; }
   font-size: 1.1rem;
   transition: var(--transition-fast);
 }
+.theme-icon {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
 .theme-toggle:hover {
   border-color: var(--primary);
   background: var(--bg-card-hover);
@@ -284,6 +289,13 @@ a:hover { text-decoration: underline; }
   height: 16px;
   background: var(--primary);
   border-radius: 2px;
+}
+
+.nav-empty {
+  display: block;
+  padding: 8px 12px 8px 36px;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
 }
 
 /* === Main Content === */

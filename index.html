@@ -16,7 +16,7 @@
     </button>
     <h1 class="mobile-logo">AlgoGuide</h1>
     <button class="theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle theme">
-      <span class="theme-icon">🌙</span>
+      <span class="theme-icon">Dark</span>
     </button>
   </header>
 
@@ -36,7 +36,7 @@
         <span class="logo-text">AlgoGuide</span>
       </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="theme-icon">🌙</span>
+        <span class="theme-icon">Dark</span>
       </button>
     </div>
 
@@ -83,7 +83,7 @@
             <span class="stat-label">Ngôn ngữ</span>
           </div>
         </div>
-        <p class="welcome-hint">👈 Chọn một thuật toán từ sidebar để bắt đầu</p>
+        <p class="welcome-hint">Chọn một thuật toán từ sidebar để bắt đầu</p>
       </div>
     </div>
 
@@ -126,7 +126,7 @@
               <div class="input-group">
                 <label for="algoInput">Dữ liệu đầu vào:</label>
                 <input type="text" id="algoInput" placeholder="VD: 5, 3, 8, 1, 9">
-                <button class="btn btn-sm" id="randomBtn" title="Tạo ngẫu nhiên">🎲</button>
+                <button class="btn btn-sm" id="randomBtn" title="Tạo ngẫu nhiên">Random</button>
               </div>
             </div>
             <div class="controls-row">
@@ -159,7 +159,7 @@
             <button class="code-tab" data-lang="go">Go</button>
             <button class="code-tab" data-lang="csharp">C#</button>
             <button class="btn btn-sm copy-btn" id="copyBtn" title="Copy to Clipboard">
-              📋 Copy
+              Copy
             </button>
           </div>
           <div class="code-content">
@@ -187,6 +187,7 @@
   </nav>
 
   <script src="js/router.js"></script>
+  <script>window.AlgoRegistry = window.AlgoRegistry || {};</script>
   <script src="js/algorithms/sorting.js"></script>
   <script src="js/algorithms/searching.js"></script>
   <script src="js/algorithms/graph.js"></script>

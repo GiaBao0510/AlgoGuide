@@ -1,6 +1,6 @@
 /* tree.js — 9 Tree Algorithms */
 (function(){
-const R = window.AlgoRegistry;
+const R = window.AlgoRegistry || (window.AlgoRegistry = {});
 function treeRender(canvas,step){
   canvas.innerHTML='';canvas.style.height='320px';canvas.style.display='block';canvas.style.position='relative';
   if(step.array){renderArrayBars(canvas,step.array,step.highlights);return;}

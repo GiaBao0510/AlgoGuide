@@ -1,6 +1,6 @@
 /* two-pointers.js — 7 Two Pointer / Sliding Window Algorithms */
 (function(){
-const R = window.AlgoRegistry;
+const R = window.AlgoRegistry || (window.AlgoRegistry = {});
 function tpRender(canvas,step){renderArrayBars(canvas,step.array,step.highlights);}
 
 R['two-pointers']={name:'Two Pointers',group:'two-pointers',defaultInput:'1, 2, 3, 4, 6, 8, 9 | 10',

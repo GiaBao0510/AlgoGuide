@@ -4,7 +4,7 @@
    render, and code (Go/C#/JS)
    ============================================ */
 (function() {
-  const R = window.AlgoRegistry;
+  const R = window.AlgoRegistry || (window.AlgoRegistry = {});
 
   /* Helper: generate sorting steps */
   function sortVizRender(canvas, step) {

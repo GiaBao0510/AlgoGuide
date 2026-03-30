@@ -1,6 +1,6 @@
 /* hashing.js — 6 Hashing Algorithms */
 (function(){
-const R = window.AlgoRegistry;
+const R = window.AlgoRegistry || (window.AlgoRegistry = {});
 function hashRender(canvas,step){renderArrayBars(canvas,step.array,step.highlights);}
 
 R['hashmap']={name:'HashMap / HashSet',group:'hashing',defaultInput:'apple, banana, cherry, date, elderberry',

@@ -2,7 +2,7 @@
    graph.js — 11 Graph Algorithms
    ============================================ */
 (function(){
-const R = window.AlgoRegistry;
+const R = window.AlgoRegistry || (window.AlgoRegistry = {});
 
 /* Shared graph helpers */
 function parseGraph(raw) {

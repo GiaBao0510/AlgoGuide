@@ -2,7 +2,7 @@
    searching.js — 6 Searching Algorithms
    ============================================ */
 (function() {
-  const R = window.AlgoRegistry;
+  const R = window.AlgoRegistry || (window.AlgoRegistry = {});
   function searchRender(canvas, step) { renderArrayBars(canvas, step.array, step.highlights); }
 
   /* ===== 1. LINEAR SEARCH ===== */
