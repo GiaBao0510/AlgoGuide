@@ -77,9 +77,3 @@ Sau đó mở trình duyệt tại:
 - Học thuật toán theo hướng trực quan, dễ hiểu.
 - Kết hợp lý thuyết và code thực hành trong cùng một giao diện.
 - Tạo nền tảng để mở rộng thêm thuật toán và bài toán mô phỏng.
-
-## Góp ý và mở rộng
-
-- Có thể bổ sung thêm các thuật toán nâng cao như DP, String Matching, Bit Manipulation.
-- Có thể thêm bộ input mẫu theo từng thuật toán để kiểm thử nhanh.
-- Có thể thêm chức năng lưu lịch sử input và so sánh kết quả giữa các thuật toán.
